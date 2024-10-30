@@ -3,6 +3,6 @@ const router = express.Router();
 const PetitDejeuneController = require('../controllers/PetitDejeuneController');
 
 
-router.post('/petitDejeune', PetitDejeuneController.create);
+router.post('/create', PetitDejeuneController.create);
 
 module.exports = router;

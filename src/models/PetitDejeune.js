@@ -5,12 +5,12 @@ const PetitDejeune = sequelize.define('PetitDejeune', {
 
     Drink: {
         type: DataTypes.STRING,
-        allowNull: false,
+        allowNull: true,
         unique: true,
     },
     Plat: {
         type: DataTypes.STRING,
-        allowNull: false,
+        allowNull: true,
         unique: true,
     },
     countryId: {
