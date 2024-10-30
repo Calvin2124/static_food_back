@@ -17,11 +17,22 @@ const Dejeune = sequelize.define('Dejeune', {
         allowNull: false,
         unique: true,
     }, 
-     Dessert: {
+    Dessert: {
         type: DataTypes.STRING,
         allowNull: false,
         unique: true,
     },
-})
+    countryId: {
+        type: DataTypes.INTEGER,
+        references: {
+            model: 'Countries', // Le nom de la table correspondant au modèle Country
+            key: 'id',
+        },
+        allowNull: false,
+    },
+}, {
+    sequelize,
+    modelName: 'Dejeune',
+});
 
 module.exports = Dejeune;
