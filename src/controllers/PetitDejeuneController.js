@@ -5,12 +5,12 @@ const { Country } = require('../models');
 exports.create = (req, res) => {
 
     
-    // const petitDejeune = {
-    //     Drink: req.body.Drink,
-    //     Plat: req.body.Plat,
-    //     countryId: req.body.countryId,
-    // };
-    PetitDejeune.create(petitDejeune)
+    const PetitDejeune = {
+        Drink: req.body.Drink,
+        Plat: req.body.Plat,
+        countryId: req.body.countryId,
+    };
+    PetitDejeune.create(PetitDejeune)
         .then((data) => {
             res.send(data);
         })
