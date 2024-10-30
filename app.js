@@ -16,6 +16,7 @@ app.get('/', (req, res) => {
 app.use(express.json());
 
 app.use('/api/petitDejeune', petitDejeuneRoute);
+app.use('/api/countries', petitDejeuneRoute);
 
 
 const linkApp = `http://localhost:${port}`;
