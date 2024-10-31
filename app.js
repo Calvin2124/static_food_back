@@ -2,6 +2,7 @@ const express = require('express');
 const cors = require('cors');
 require('dotenv').config();
 const petitDejeuneRoute = require('./src/routes/PetitDejeuneRoute');
+const CountriesController = require('./src/routes/CountriesRoute');
 const port = process.env.PORT || 3000;
 
 
@@ -16,7 +17,7 @@ app.get('/', (req, res) => {
 app.use(express.json());
 
 app.use('/api/petitDejeune', petitDejeuneRoute);
-app.use('/api/countries', petitDejeuneRoute);
+app.use('/api/countries', CountriesController);
 
 
 const linkApp = `http://localhost:${port}`;
