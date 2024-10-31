@@ -1,20 +1,30 @@
 const { PetitDejeune } = require('../models');
-const { Country } = require('../models');
 
 // Créer un petit déjeuner, le pays est par défaut dans une autre table 
 exports.create = async (req, res) => {
     try {
-        console.log(req.body);
+        // Destructurer les données du corps de la requête
+        let { Drink, Plat, countryId } = req.body;
 
+        // Validation de countryId
+        if (!countryId) {
+            return res.status(400).send({ message: 'countryId est requis.' });
+        }
+
+        // Convertir les chaînes vides en null
+        Drink = Drink === "" ? null : Drink;
+        Plat = Plat === "" ? null : Plat;
+
+        // Créer l'objet de données pour l'entrée
         const petitDejeuneData = {
-            Drink: req.body.Drink,
-            Plat: req.body.Plat,
-            countryId: req.body.countryId,
+            Drink,
+            Plat,
+            countryId,
         };
 
         // Utiliser le modèle Sequelize pour créer l'entrée
         const data = await PetitDejeune.create(petitDejeuneData);
-        res.send(data);
+        res.status(201).send(data); // Renvoie un statut 201 pour une création réussie
 
     } catch (err) {
         res.status(500).send({

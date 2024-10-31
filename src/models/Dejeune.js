@@ -4,23 +4,23 @@ const sequelize = require('../config/database');
 const Dejeune = sequelize.define('Dejeune', {
     Drink: {
         type: DataTypes.STRING,
-        allowNull: false,
-        unique: true,
+        allowNull: true,
+        unique: false,
     },
     Entree: {
         type: DataTypes.STRING,
-        allowNull: false,
-        unique: true,
+        allowNull: true,
+        unique: false,
     },
     Plat: {
         type: DataTypes.STRING,
-        allowNull: false,
-        unique: true,
+        allowNull: true,
+        unique: false,
     }, 
     Dessert: {
         type: DataTypes.STRING,
-        allowNull: false,
-        unique: true,
+        allowNull: true,
+        unique: false,
     },
     countryId: {
         type: DataTypes.INTEGER,
